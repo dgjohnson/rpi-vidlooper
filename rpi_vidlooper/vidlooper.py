@@ -170,7 +170,10 @@ class VidLooper(object):
                     pid = -1
                     if self._p:
                         pid = self._p.pid
-                        self._p.communicate()
+                        while self._p.poll is None: #still playing video
+                            #read audio amplitude for seven bands
+                            #set servo position based on band amplitude
+                            # block until process completes: self._p.communicate()
                     if self._p:
                         if self._p.pid == pid:
                             # Reset LEDs
